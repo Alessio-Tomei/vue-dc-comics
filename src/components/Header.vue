@@ -2,39 +2,12 @@
 <header>
     <div class="container">
         <div class="container-logo">
-        <img src="../assets/img/dc-logo.png" alt="">
+            <img src="../assets/img/dc-logo.png" alt="">
         </div>
         <nav>
             <ul>
-                <li>
-                    <a href=""><span>characters</span></a>
-                </li>
-                <li>
-                    <a href="" class="active"><span>comics</span></a>
-                </li>
-                <li>
-                    <a href=""><span>movie</span></a>
-                </li>
-                <li>
-                    <a href=""><span>tv</span></a>
-                </li>
-                <li>
-                    <a href=""><span>games</span></a>
-                </li>
-                <li>
-                    <a href=""><span>collectibles</span></a>
-                </li>
-                <li>
-                    <a href=""><span>video</span></a>
-                </li>
-                <li>
-                    <a href=""><span>fans</span></a>
-                </li>
-                <li>
-                    <a href=""><span>news</span></a>
-                </li>
-                <li>
-                    <a href=""><span>shop</span></a>
+                <li v-for="(navElement, index) in navTabs" :key="index">
+                    <a href="" :class="{'active' : navElement.current}"><span>{{navElement.tabName}}</span></a>
                 </li>
             </ul>
         </nav>
@@ -47,7 +20,49 @@ export default {
     name: 'Header',
     data() {
       return{
-        
+        navTabs: [
+            {
+                tabName: 'characters',
+                current: false,
+            },
+            {
+                tabName: 'comics',
+                current: true,
+            },
+            {
+                tabName: 'movie',
+                current: false,
+            },
+            {
+                tabName: 'tv',
+                current: false,
+            },
+            {
+                tabName: 'games',
+                current: false,
+            },
+            {
+                tabName: 'collectibles',
+                current: false,
+            },
+            {
+                tabName: 'videos',
+                current: false,
+            },
+            {
+                tabName: 'fans',
+                current: false,
+            },
+            {
+                tabName: 'news',
+                current: false,
+            },
+            {
+                tabName: 'shop',
+                current: false,
+            },
+            
+        ] 
       }
     }
 }
@@ -66,11 +81,11 @@ header {
 }
 
 .container-logo {
-    width:30%;
+    width:40%;
 }
 
 nav {
-    width: 70%;
+    width: 60%;
     height: 100%;
 }
 
@@ -92,6 +107,7 @@ li {
         width: 100%;
         height: 100%;
         font-weight: bold;
+        font-size: 0.7rem;
         color: $darkColor;
         text-transform: uppercase;
         &.active, &:hover {
