@@ -49,7 +49,7 @@ export default {
     background-color: $dcMainColor;
 }
 
-.container {
+.footer-top .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
